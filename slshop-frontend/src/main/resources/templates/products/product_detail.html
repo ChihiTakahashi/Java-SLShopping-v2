@@ -24,11 +24,11 @@
             [[${product.description}]]
           </p>
           <div class="d-flex input-group">
-              <button type="button" class="btn btn-secondary">
+              <button id="minus_button" type="button" class="btn btn-secondary">
                 <i class="bi bi-dash"></i>
               </button>
-              <input type="text" class="form-control text-center" readonly style="max-width: 3rem" />
-              <button type="button" class="btn btn-secondary">
+              <input id="quantity" type="number" class="form-control text-center" readonly style="max-width: 3rem" />
+              <button id="plus_button" type="button" class="btn btn-secondary">
                 <i class="bi bi-plus"></i>
               </button>
               <button class="btn btn-outline-primary flex-shrink-0 ms-4" type="button">
@@ -55,6 +55,25 @@
       </div>
     </div>
   </section>
+  <script>
+	  let productsQuantity = document.getElementById('quantity'); // 数量ボックス
+	  productsQuantity.value = 0;
+	  let minusButton = document.getElementById('minus_button'); // マイナスボタン
+	  let plusButton = document.getElementById('plus_button'); // プラスボタン
+	  
+	  // マイナスボタンのイベント追加
+	  minusButton.addEventListener('click', function() {
+		  	productsQuantity.value--;
+	  });
+	  
+	  // プラスボタンのイベント追加
+	  plusButton.addEventListener('click', function() {
+			  productsQuantity.value++;
+	  });
+	  
+	  // モーダル表示
+	  
+  </script>
   <th:block th:replace="~{layouts/modal_fragments :: messageModal}" />
 </body>
 </html>
